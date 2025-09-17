@@ -5,7 +5,7 @@ A Svelte 5 wrapper for [Plyr](https://plyr.io/) - A simple, accessible, and cust
 ## Installation
 
 ```sh
-pnpm install plyr-sv plyr
+pnpm install plyr-sv
 ```
 
 ## Usage
