@@ -52,14 +52,14 @@
 			type: 'video',
 			sources: [
 				{
-					src: 'https://cdn.plyr.io/static/demo.mp4',
+					src: 'http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4',
 					type: 'video/mp4',
-					size: 720
+					size: 1080
 				},
 				{
-					src: 'https://cdn.plyr.io/static/demo.webm',
-					type: 'video/webm',
-					size: 1080
+					src: 'http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_60fps_normal.mp4',
+					type: 'video/mp4',
+					size: 2160
 				}
 			],
 			poster: 'https://cdn.plyr.io/static/demo.jpg',
@@ -110,7 +110,7 @@
 			type: 'video',
 			sources: [
 				{
-					src: 'bTqVqk7FSmY',
+					src: 'YE7VzlLtp-4',
 					provider: 'youtube'
 				}
 			]
@@ -128,7 +128,7 @@
 			type: 'video',
 			sources: [
 				{
-					src: '147365198',
+					src: '1084537',
 					provider: 'vimeo'
 				}
 			]
@@ -146,7 +146,7 @@
 			type: 'video',
 			sources: [
 				{
-					src: 'https://cdn.plyr.io/static/demo.mp4',
+					src: 'http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4',
 					type: 'video/mp4'
 				}
 			]
@@ -201,7 +201,7 @@
 			type: 'video',
 			sources: [
 				{
-					src: 'https://cdn.plyr.io/static/demo.mp4',
+					src: 'http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4',
 					type: 'video/mp4'
 				}
 			]
@@ -223,7 +223,7 @@
 			type: 'video',
 			sources: [
 				{
-					src: 'https://cdn.plyr.io/static/demo.mp4',
+					src: 'http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4',
 					type: 'video/mp4'
 				}
 			]

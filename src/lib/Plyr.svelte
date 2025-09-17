@@ -1,10 +1,10 @@
 <script lang="ts" module>
-	import * as PlyrJS from 'plyr';
+	import PlyrJS, { type Options, type SourceInfo } from 'plyr';
 
 	// Export types for external use
-	export type PlyrInstance = PlyrJS.default;
-	export type PlyrOptions = PlyrJS.Options;
-	export type PlyrSource = PlyrJS.SourceInfo;
+	export type PlyrInstance = PlyrJS;
+	export type PlyrOptions = Options;
+	export type PlyrSource = SourceInfo;
 </script>
 
 <script lang="ts">
@@ -12,14 +12,14 @@
 	import type { HTMLVideoAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLVideoAttributes {
-		source?: PlyrJS.SourceInfo;
-		options?: PlyrJS.Options;
+		source?: PlyrSource;
+		options?: PlyrOptions;
 	}
 
 	const { source, options, ...rest }: Props = $props();
 
 	let mediaElement = $state<HTMLVideoElement | HTMLAudioElement | null>(null);
-	let player: PlyrJS.default | null = $state(null);
+	let player: PlyrJS | null = $state(null);
 
 	// Initialize Plyr instance
 	onMount(() => {
@@ -29,7 +29,7 @@
 		}
 
 		if (!player) {
-			player = new PlyrJS.default(mediaElement, options ?? {});
+			player = new PlyrJS(mediaElement, options ?? {});
 			if (source) {
 				player.source = source;
 			}
@@ -45,7 +45,7 @@
 	});
 
 	// Function to get the player instance
-	export function getPlayer(): PlyrJS.default | null {
+	export function getPlayer(): PlyrJS | null {
 		return player;
 	}
 
@@ -70,7 +70,7 @@
 			untrackedPlayer.destroy();
 
 			// Create new player with updated options
-			player = new PlyrJS.default(mediaElement, options);
+			player = new PlyrJS(mediaElement, options);
 
 			// Restore source if it exists
 			if (currentSource) {

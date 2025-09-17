@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       plyr:
-        specifier: '>=3.8'
-        version: 3.8.3
+        specifier: 3.7.7
+        version: 3.7.7
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^4.1.1
@@ -1621,8 +1621,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  plyr@3.8.3:
-    resolution: {integrity: sha512-0+iI5uw0WRvtKBpgPCkmQQv7ucHVQKTEo6UFJjgJ8cy/JZhy0dQqshHQVitHXV6l2O3MzhgnuvQ95VSkWcWeSw==}
+  plyr@3.7.7:
+    resolution: {integrity: sha512-8B2b0HP+j/jKM7GrYdEuSi1hIF3BnNzjaBsBa3bx4/SO9omX3EfhCi78ZFh/0QuCKlwpTBusTMMZ3Hq6bJ5d/g==}
 
   postcss-load-config@3.1.4:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
@@ -3534,7 +3534,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.2
 
-  plyr@3.8.3:
+  plyr@3.7.7:
     dependencies:
       core-js: 3.45.1
       custom-event-polyfill: 1.0.7
