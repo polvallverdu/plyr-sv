@@ -1,8 +1,8 @@
 <script lang="ts" module>
-	import PlyrJS, { type Options, type SourceInfo } from 'plyr';
+	import type { Options, SourceInfo } from 'plyr';
 
 	// Export types for external use
-	export type PlyrInstance = PlyrJS;
+	export type PlyrInstance = import('plyr');
 	export type PlyrOptions = Options;
 	export type PlyrSource = SourceInfo;
 </script>
@@ -19,14 +19,16 @@
 	const { source, options, ...rest }: Props = $props();
 
 	let mediaElement = $state<HTMLVideoElement | HTMLAudioElement | null>(null);
-	let player: PlyrJS | null = $state(null);
+	let player: PlyrInstance | null = $state(null);
 
 	// Initialize Plyr instance
-	onMount(() => {
+	onMount(async () => {
 		// Ensure media element is available before initializing Plyr
 		if (!mediaElement) {
 			throw new Error('Media element not found. Make sure to provide proper source prop.');
 		}
+
+		const PlyrJS = (await import('plyr')).default;
 
 		if (!player) {
 			player = new PlyrJS(mediaElement, options ?? {});
@@ -45,7 +47,7 @@
 	});
 
 	// Function to get the player instance
-	export function getPlayer(): PlyrJS | null {
+	export function getPlayer(): PlyrInstance | null {
 		return player;
 	}
 
@@ -70,24 +72,29 @@
 			untrackedPlayer.destroy();
 
 			// Create new player with updated options
-			player = new PlyrJS(mediaElement, options);
+			(async () => {
+				const PlyrJS = (await import('plyr')).default;
+				const localPlayer = new PlyrJS(mediaElement, options);
 
-			// Restore source if it exists
-			if (currentSource) {
-				player.source = currentSource;
-			}
+				// Restore source if it exists
+				if (currentSource) {
+					localPlayer.source = currentSource;
+				}
 
-			// Restore playback state
-			if (currentTime > 0 && player) {
-				player.once('ready', () => {
-					if (player) {
-						player.currentTime = currentTime;
-						if (!paused) {
-							player.play();
+				// Restore playback state
+				if (currentTime > 0 && localPlayer) {
+					localPlayer.once('ready', () => {
+						if (player) {
+							localPlayer.currentTime = currentTime;
+							if (!paused) {
+								localPlayer.play();
+							}
 						}
-					}
-				});
-			}
+					});
+				}
+
+				player = localPlayer;
+			})();
 		}
 	});
 </script>
