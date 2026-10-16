@@ -1,5 +1,9 @@
 # plyr-sv
 
+> [!WARNING]
+> **This repository is deprecated and no longer maintained.**
+> Please use the new [Video.js](https://videojs.org/) instead, which has first-class Svelte support: [Video.js Svelte guide](https://videojs.org/docs/framework/html/guides/svelte).
+
 A Svelte 5 wrapper for [Plyr](https://plyr.io/) - A simple, accessible, and customizable HTML5, YouTube, and Vimeo media player, with Svelte 5 reactiveness.
 
 ## Installation
